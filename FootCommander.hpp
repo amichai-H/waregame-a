@@ -71,8 +71,9 @@ public:
                             std::cout << temp << " is hert and his life is: " << temp->healthPoints <<std::endl;
 
                             temp->healthPoints = temp->healthPoints - this->dpa;
-                            std::cout << temp << " after attac the life is "<< temp->healthPoints << std::endl;
 
+                            std::cout << temp << " after attac the life is "<< temp->healthPoints << std::endl;
+                            print_board(board,source);
                             if (temp->healthPoints <=0) // got killed
                             {
                                 std::cout << temp << " is killed" << std::endl;
@@ -94,6 +95,10 @@ public:
         
 
     }
+    void restorlife() override{
+        this->healthPoints = 150;
+    }
+    
     
             
     

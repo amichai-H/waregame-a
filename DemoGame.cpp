@@ -10,7 +10,10 @@
 #include "DemoGame.hpp"
 #include "FootSoldier.hpp"
 #include "FootCommander.hpp"
-
+#include "Sniper.hpp"
+#include "SniperCommander.hpp"
+#include "Paramedic.hpp"
+#include "ParamedicCommander.hpp"
 #include <cassert>
 
 namespace WarGame {
@@ -21,6 +24,9 @@ namespace WarGame {
 			board[{0,1}] = new FootSoldier(1);
 			board[{0,3}] = new FootCommander(1);
 			board[{0,5}] = new FootSoldier(1);
+			board[{0,6}] = new Sniper(1);
+			board[{0,4}] = new Sniper(1);
+			board[{0,7}] = new SniperCommander(1);
 			board.has_soldiers(1);
 			assert(board.has_soldiers(1));
 
@@ -29,6 +35,8 @@ namespace WarGame {
 			board[{7,1}] = new FootSoldier(2);
 			board[{7,3}] = new FootCommander(2);
 			board[{7,5}] = new FootSoldier(2);
+			board[{7,6}] = new Paramedic(2);
+			board[{7,4}] = new ParamedicCommander(2);
 			assert(board.has_soldiers(2));
 
 			// In your game, you can put more soldier types, such as the sniper and the paramedic types.
@@ -45,8 +53,17 @@ namespace WarGame {
 
 			board.move(2, {7,3}, Board::MoveDIR::Left);    // FootCommander of player 2 moves left, and all soldiers of player 2 attack.
 			if (!board.has_soldiers(1)) return 2;
-
+			board.move(2, {7,4}, Board::MoveDIR::Down);    // FootCommander of player 2 moves left, and all soldiers of player 2 attack.
+			if (!board.has_soldiers(1)) return 2;
+			board.move(1, {0,6}, Board::MoveDIR::Up);    // FootCommander of player 2 moves left, and all soldiers of player 2 attack.
+			if (!board.has_soldiers(2)) return 1;
 			/// Write more moves here..
+			board.move(1, {1,6}, Board::MoveDIR::Up);    // FootCommander of player 2 moves left, and all soldiers of player 2 attack.
+			if (!board.has_soldiers(2)) return 1;
+			board.move(1, {2,6}, Board::MoveDIR::Up);    // FootCommander of player 2 moves left, and all soldiers of player 2 attack.
+			if (!board.has_soldiers(2)) return 1;
+			board.move(1, {0,7}, Board::MoveDIR::Up);    // FootCommander of player 2 moves left, and all soldiers of player 2 attack.
+			if (!board.has_soldiers(2)) return 1;
 
 			// If no player won, return "tie":
 			return 0;

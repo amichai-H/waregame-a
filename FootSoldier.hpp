@@ -5,24 +5,7 @@
 #include "Soldier.hpp"
 #include <iostream>
 
-void print_board(std::vector<std::vector<Soldier*>> &board){
-    for(int i=0; i<board.size();i++){
-        for(int j=0; j< board.size();j++){
-            if (board[i][j]==0)
-            {
-                std::cout << "||" << "00000000";
-            }
-            else
-            {
-                std::cout << "||" << board[i][j];
-            }
-            
-            
-        }
-        std::cout << "||" << std::endl;
-    }
-    std::cout << "" << std::endl; 
-}
+
 
 class FootSoldier: public Soldier {
 public:
@@ -46,7 +29,7 @@ public:
         
     }
     virtual void attack(std::vector<std::vector<Soldier*>> &board, std::pair<int,int> source) override{
-        print_board(board);
+        
         int x  = source.first;
         int y = source.second;
         int startX = x-1, endX = x+1 ,startY = y-1,endY = y+1;
@@ -76,6 +59,7 @@ public:
                             std::cout << temp << " is hert and his life is: " << temp->healthPoints <<std::endl;
                             temp->healthPoints = temp->healthPoints - this->dpa;
                             std::cout << temp << " after attac the life is "<< temp->healthPoints << std::endl;
+                            print_board(board,source);
                             if (temp->healthPoints <=0) // got killed
                             {
                                 std::cout << temp << " is killed" << std::endl;
@@ -98,6 +82,9 @@ public:
         }
         
 
+    }
+    void restorlife() override{
+        this->healthPoints = 100;
     }
     
             
