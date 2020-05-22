@@ -1,5 +1,5 @@
 <div dir="rtl" lang="he">
-
+<img src="https://github.com/amichai-H/waregame-a/blob/master/befor%20play.jpg?raw=true" alt="ware" style="width:auto;">
 # משחק מלחמה - שלב א
 
 במטלה זו עליכם לתכנן משחק מלחמה לשני שחקנים על לוח מלבני.
