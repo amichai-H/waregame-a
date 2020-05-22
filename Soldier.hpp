@@ -7,6 +7,7 @@
 #include <vector>
 #include <stdexcept>
 #include <iostream>
+#include <iomanip>
 
 class Soldier{
 public:
@@ -25,18 +26,19 @@ public:
     virtual void attack(std::vector<std::vector<Soldier*>> &board, std::pair<int,int> source) = 0 ;
     virtual void restorlife() = 0 ;
     void print_board(std::vector<std::vector<Soldier*>> &board,std::pair<int,int> source){
+    std::cout << std::fixed << std::setprecision(2) << std::setfill('0');
     for(int i=0; i<board.size();i++){
         for(int j=0; j< board.size();j++){
             if( i == source.first && j == source.second){
-                    std::cout << "||" << "memememe";
+                    std::cout << "||" << std::setw(9) << "!!!!!!!!!";
             }
             else if (board[i][j]==0)
             {
-                std::cout << "||" << "00000000";
+                std::cout << "||" << std::setw(9)<< "000000000";
             }
             else
             {
-                std::cout << "||" << board[i][j];
+                std::cout << "||" << std::setw(9)<<  board[i][j];
             }
             
             

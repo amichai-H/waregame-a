@@ -72,7 +72,7 @@ public:
         
     }
     void restorlife() override{
-        this->healthPoints = 100;
+        this->healthPoints = 120;
     }
     
 };
