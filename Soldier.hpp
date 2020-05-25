@@ -48,7 +48,7 @@ public:
     std::cout << "" << std::endl; 
 }
     virtual ~Soldier() = 0;
-    
+     ~Soldier(){}
 };
- Soldier:: ~Soldier(){}
+
 
