@@ -50,5 +50,5 @@ public:
     virtual ~Soldier() = 0;
     
 };
-
+ Soldier:: ~Soldier(){}
 
