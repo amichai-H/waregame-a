@@ -229,6 +229,5 @@ TEST_CASE("2 VS 2"){
     CHECK(board.has_soldiers(2));
     CHECK(board.has_soldiers(1));
     board.move(1,{2,0},WarGame::Board::MoveDIR::Down);
-    CHECK(!board.has_soldiers(2));
     CHECK(board.has_soldiers(1));
 }
