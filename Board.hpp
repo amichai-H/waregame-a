@@ -60,6 +60,9 @@ class Board {
     }
 
     void attack(std::pair<int,int> source, Soldier* soldier);
+  ~Board(){
+      board.clear();
+    }
 };
 
 }
