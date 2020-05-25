@@ -162,7 +162,9 @@ TEST_CASE("One soldier of this type"){
     CHECK(board.has_soldiers(1));
     //sniper 1 will kill them all
     board.move(1,{1,3},WarGame::Board::MoveDIR::Down);
+	CHECK(board.has_soldiers(2));
     board.move(1,{0,3},WarGame::Board::MoveDIR::Up);
+	CHECK(board.has_soldiers(2));
     board.move(1,{1,3},WarGame::Board::MoveDIR::Down);
     CHECK(board.has_soldiers(2));
     board.move(1,{0,3},WarGame::Board::MoveDIR::Up);
