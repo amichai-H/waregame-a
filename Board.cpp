@@ -7,7 +7,7 @@
 
 namespace WarGame {
     Soldier*& Board:: operator[](std::pair<int,int> location){
-        alertPlace(location);
+        //alertPlace(location);
         return this->board[location.first][location.second];
     }
     Soldier* Board:: operator[](std::pair<int,int> location) const{
