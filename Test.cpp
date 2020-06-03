@@ -15,7 +15,7 @@
 #include <cassert>
 
 //check exceptions in diff cases
-
+using namespace WarGame;
 TEST_CASE("Sniper VS Sniper") { //good
     WarGame::Board board(8,8);
     CHECK(!board.has_soldiers(1));
@@ -215,6 +215,8 @@ TEST_CASE("One soldier of this type"){
         board.move(1,{1,2},WarGame::Board::MoveDIR::Down); //player2 soldier3 - 0, player2 soldier 6 - 20/10
         board.move(1,{0,2},WarGame::Board::MoveDIR::Up); //player2 soldier3 - 0, player2 soldier 6 - 0
         board.move(1,{1,2},WarGame::Board::MoveDIR::Down); //player2 soldier3 - 0, player2 soldier 6 - 0
+	board.move(1,{0,2},WarGame::Board::MoveDIR::Up); //player2 soldier3 - 0, player2 soldier 6 - 0
+
 
     //just to be Sure all is dead
     CHECK(!board.has_soldiers(2));
